@@ -1,27 +1,34 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity =0.5.16;
+pragma solidity ^0.7.6;
 
-contract LockV5 {
+contract LockV7 {
     uint public unlockTime;
-    //var public a = unlockTime;
     address payable public owner;
 
     event Withdrawal(uint amount, uint when);
 
-    constructor(uint _unlockTime) public payable {
+    constructor(uint _unlockTime) payable {
+        /**
+        THIS RESULTS IN ERROR
         require(
             now < _unlockTime,
+            "Unlock time should be in the future
+        )
+         */
+        require(
+            block.timestamp < _unlockTime,
             "Unlock time should be in the future"
         );
+
         unlockTime = _unlockTime;
-        owner = msg.sender;
+        owner = payable(msg.sender);
     }
 
     function withdraw() public {
-        require(now >= unlockTime, "You can't withdraw yet");
+        require(block.timestamp >= unlockTime, "You can't withdraw yet");
         require(msg.sender == owner, "You aren't the owner");
 
-        emit Withdrawal(address(this).balance, now);
+        emit Withdrawal(address(this).balance, block.timestamp);
 
         owner.transfer(address(this).balance);
     }
