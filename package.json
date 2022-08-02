@@ -4,6 +4,10 @@
   "main": "index.js",
   "repository": "https://github.com/Think-and-Dev/eth-latam-workshop-solidity.git",
   "license": "MIT",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat deploy"
+  },
   "engines": {
     "node": ">=16"
   },
