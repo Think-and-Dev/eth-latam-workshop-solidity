@@ -1,0 +1,8 @@
+[
+  "constructor(address)",
+  "function contractStopped() view returns (bool)",
+  "function deposit() payable",
+  "function owner() view returns (address)",
+  "function toggleContractStopped()",
+  "function withdraw() view"
+]

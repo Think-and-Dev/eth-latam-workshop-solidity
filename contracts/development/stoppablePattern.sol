@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-contract StoppablePattern is Owned { 
+contract StoppablePattern { 
+  address public owner;
   bool public contractStopped = false;
+
     modifier haltInEmergency { 
         require(contractStopped);
         _;   
@@ -11,6 +13,16 @@ contract StoppablePattern is Owned {
     modifier enableInEmergency { 
         require(!contractStopped); 
         _; 
+    }
+    
+    modifier onlyOwner{
+        require(msg.sender == owner);
+        _;
+    }
+
+    constructor(address _owner){
+        require(_owner != address(0), "OWNER CAN NOT BE NULL");
+        owner = _owner;
     }
 
     function toggleContractStopped() public onlyOwner { 
