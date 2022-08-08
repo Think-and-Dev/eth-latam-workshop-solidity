@@ -1,5 +1,7 @@
 import {HardhatRuntimeEnvironment} from 'hardhat/types';
 import {DeployFunction} from 'hardhat-deploy/types';
+import {ethers} from 'hardhat';
+import {getUnlockTime} from '../utils/utils';
 
 const version = 'v0.0.0';
 const ContractName = 'LockV4';
@@ -11,20 +13,21 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {deployer} = await getNamedAccounts();
 
   console.log('\n Deploying LockV4 contract...');
+  const unlockTime = getUnlockTime();
 
   const LockV4Result = await deploy(ContractName, {
-    args: ['Hello'],
+    args: [unlockTime],
     contract: ContractName,
     from: deployer,
     skipIfAlreadyDeployed: false,
-
+    value: ethers.utils.parseEther('1'),
     autoMine: true,
   });
 
-  const greeterAddr = LockV4Result.address;
+  const lockV4Address = LockV4Result.address;
 
-  console.log('\n  Contract Deployments Complete!\n');
-  console.log('-ContractName                       ', greeterAddr);
+  console.log('\n  Contract Deployment Complete!\n');
+  console.log('-ContractName                       ', lockV4Address);
 
   return true;
 };
