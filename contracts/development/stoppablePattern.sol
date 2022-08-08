@@ -33,7 +33,11 @@ contract StoppablePattern {
         // some code 
     }
 
-    function withdraw() public view enableInEmergency { 
+    function withdraw() public haltInEmergency{
+        //some code
+    }
+
+    function emergencyWithdraw() public view enableInEmergency { 
         // some code 
     }  
 }
