@@ -2,19 +2,20 @@
 pragma solidity ^0.8.9;
 
 contract List {
-    struct UserData {
+   
+    struct UserData  {
         address userAddr;
-        uint256 score;
+        uint96 score;
     }
 
     UserData [] public userDataList;
     mapping(address => uint256) userInfoList;
 
     event Initialized();
-    event Add(address user,uint256 score, address who);
+    event Add(address user,uint96 score, address who);
     event Remove(address user, address who);
 
-    constructor(address[] memory _userAddresses, uint256[] memory _scores) {
+    constructor(address[] memory _userAddresses, uint96[] memory _scores) {
         uint256 length = _userAddresses.length;
         for(uint256 i = 0; i < length; i++){
             /**
@@ -38,7 +39,7 @@ contract List {
         return userDataList.length;
     }
 
-    function add(address _userAddress, uint256 _score) public {
+    function add(address _userAddress, uint96 _score) public {
         userDataList.push(
             UserData({
                 userAddr: _userAddress,
