@@ -1,0 +1,4 @@
+[
+  "function getOwner() view returns (address)",
+  "function getUnlockTime(address) view returns (uint256)"
+]
