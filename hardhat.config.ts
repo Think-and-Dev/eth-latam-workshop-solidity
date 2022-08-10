@@ -3,6 +3,7 @@ import '@nomicfoundation/hardhat-toolbox';
 
 import 'hardhat-deploy';
 import 'hardhat-abi-exporter';
+import 'hardhat-contract-sizer';
 
 import networks from './hardhat.networks';
 import namedAccounts from './hardhat.accounts';
@@ -61,9 +62,14 @@ const config: HardhatUserConfig = {
   namedAccounts,
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
+    gasPrice: 47,
     currency: 'USD',
-    // gasPrice: '',
-    // gasPriceApi: '',
+    // onlyCalledMethods: false,
+  },
+  contractSizer: {
+    alphaSort: true,
+    runOnCompile: false,
+    strict: true,
   },
   abiExporter: {
     path: './abis',

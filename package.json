@@ -10,7 +10,10 @@
     "hardhat-run": "npx hardhat run --network hardhat",
     "run-example-1": "VICTIM_CONTRACT_NAME=reentrancyVictim yarn hardhat-run ./scripts/reentrancy/deploy_and_run.ts",
     "run-example-2": "VICTIM_CONTRACT_NAME=reentrancyProtected yarn hardhat-run ./scripts/reentrancy/deploy_and_run.ts",
-    "run-example-3": "VICTIM_CONTRACT_NAME=reentrancyWithOZ yarn hardhat-run ./scripts/reentrancy/deploy_and_run.ts"
+    "run-example-3": "VICTIM_CONTRACT_NAME=reentrancyWithOZ yarn hardhat-run ./scripts/reentrancy/deploy_and_run.ts",
+    "deploy": "npx hardhat deploy",
+    "size-contracts": "npx hardhat size-contracts --no-compile",
+    "test": "npx hardhat test"
   },
   "engines": {
     "node": ">=16"
@@ -43,6 +46,7 @@
     "ethers": "^5.6.9",
     "hardhat": "^2.10.1",
     "hardhat-abi-exporter": "^2.10.0",
+    "hardhat-contract-sizer": "^2.6.1",
     "hardhat-deploy": "^0.11.12",
     "hardhat-gas-reporter": "^1.0.8",
     "prettier": "^2.3.2",
