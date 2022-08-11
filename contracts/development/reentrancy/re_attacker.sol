@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-contract reentrancyAttacker {
+contract ReentrancyAttacker {
     address public victim;
     uint256 public amount;
     uint256 public counter;

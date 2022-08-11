@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.6;
 
-contract reentrancyProtected {
+contract ReentrancyProtected {
     //Balance tracking
     mapping(address => uint256) public balances;
 

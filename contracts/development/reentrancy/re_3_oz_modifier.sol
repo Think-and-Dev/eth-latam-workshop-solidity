@@ -3,7 +3,7 @@ pragma solidity ^0.8.6;
 
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-contract reentrancyWithOZ is ReentrancyGuard {
+contract ReentrancyWithOZ is ReentrancyGuard {
     //Balance tracking
     mapping(address => uint256) public balances;
 

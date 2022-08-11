@@ -6,7 +6,7 @@ import {stdin as input, stdout as output} from 'node:process';
 
 /* ----------- CONFIG START -------------- */
 
-const victimContractName = process.env.VICTIM_CONTRACT_NAME ?? 'reentrancyVictim';
+const victimContractName = process.env.VICTIM_CONTRACT_NAME ?? 'ReentrancyVictim';
 const generalLogs = chalk.gray;
 const warningLogs = chalk.yellow;
 const eventsLogs = chalk.blue;
@@ -26,7 +26,7 @@ async function main() {
 
   console.log(generalLogs('-----------Deploying first reentrancy example-----------'));
   const RentrancyVictimContract = await ethers.getContractFactory(victimContractName);
-  const RentrancyAttackerContract = await ethers.getContractFactory('reentrancyAttacker');
+  const RentrancyAttackerContract = await ethers.getContractFactory('ReentrancyAttacker');
   const RentrancyVictimInstance = await RentrancyVictimContract.deploy();
 
   await RentrancyVictimInstance.deployed();
