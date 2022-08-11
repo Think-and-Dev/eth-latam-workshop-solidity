@@ -24,7 +24,7 @@ async function main() {
   rl = readline.createInterface({input, output});
   const userAddress = (await ethers.getSigners())[0].address;
 
-  console.log(generalLogs('-----------Deploying first reentrancy example-----------'));
+  console.log(generalLogs(`-----------Deploying reentrancy example (${victimContractName})-----------`));
   const RentrancyVictimContract = await ethers.getContractFactory(victimContractName);
   const RentrancyAttackerContract = await ethers.getContractFactory('ReentrancyAttacker');
   const RentrancyVictimInstance = await RentrancyVictimContract.deploy();
@@ -45,7 +45,7 @@ async function main() {
     )
   );
 
-  console.log(generalLogs('-----------Deployed first reentrancy example-----------'));
+  console.log(generalLogs('-----------Deployed reentrancy example contracts-----------'));
 
   await printTxToConsole(
     RentrancyVictimInstance.payIn({value: extraPayinAmount}),

