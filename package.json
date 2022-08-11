@@ -6,7 +6,11 @@
   "license": "MIT",
   "scripts": {
     "compile": "npx hardhat compile",
-    "deploy": "npx hardhat deploy"
+    "local-node": "npx hardhat node",
+    "hardhat-run": "npx hardhat run --network hardhat",
+    "run-example-1": "VICTIM_CONTRACT_NAME=reentrancyVictim yarn hardhat-run ./scripts/reentrancy/deploy_and_run.ts",
+    "run-example-2": "VICTIM_CONTRACT_NAME=reentrancyProtected yarn hardhat-run ./scripts/reentrancy/deploy_and_run.ts",
+    "run-example-3": "VICTIM_CONTRACT_NAME=reentrancyWithOZ yarn hardhat-run ./scripts/reentrancy/deploy_and_run.ts"
   },
   "engines": {
     "node": ">=16"
@@ -19,7 +23,6 @@
     "@nomicfoundation/hardhat-toolbox": "^1.0.1",
     "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers",
     "@nomiclabs/hardhat-etherscan": "^3.0.0",
-    "@openzeppelin/contracts": "^4.7.2",
     "@typechain/ethers-v5": "^10.1.0",
     "@typechain/hardhat": "^6.1.2",
     "@types/chai": "^4.2.0",
@@ -29,6 +32,7 @@
     "@typescript-eslint/parser": "^4.29.1",
     "bignumber.js": "^9.0.2",
     "chai": "^4.2.0",
+    "chalk": "^4.1.2",
     "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
@@ -48,5 +52,8 @@
     "ts-node": "^10.1.0",
     "typechain": "^8.1.0",
     "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.7.2"
   }
 }
