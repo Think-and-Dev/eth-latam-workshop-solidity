@@ -1,0 +1,10 @@
+[
+  "constructor(address) payable",
+  "function addAmount() payable",
+  "function amount() view returns (uint256)",
+  "function contractBalance() view returns (uint256)",
+  "function counter() view returns (uint256)",
+  "function payIn() returns (bool)",
+  "function victim() view returns (address)",
+  "function withdrawAttack()"
+]
