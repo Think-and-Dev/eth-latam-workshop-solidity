@@ -1,3 +1,4 @@
+/* eslint-disable node/no-unpublished-import */
 import {time, loadFixture} from '@nomicfoundation/hardhat-network-helpers';
 import {anyValue} from '@nomicfoundation/hardhat-chai-matchers/withArgs';
 import {expect} from 'chai';
@@ -45,7 +46,7 @@ describe('Lock', function () {
     it('Should fail if the unlockTime is not in the future', async function () {
       // We don't use the fixture here because we want a different deployment
       const latestTime = await time.latest();
-      const Lock = await ethers.getContractFactory('Lock');
+      const Lock = await ethers.getContractFactory('LockV8');
       await expect(Lock.deploy(latestTime, {value: 1})).to.be.revertedWith('Unlock time should be in the future');
     });
   });

@@ -10,7 +10,6 @@ abstract contract  abstractLockV6 {
     function withdraw() public virtual;
 }
 
-
 contract LockV6 is iLockV6, abstractLockV6{
     uint public unlockTime;
     address payable private owner;
@@ -23,7 +22,7 @@ contract LockV6 is iLockV6, abstractLockV6{
             "Unlock time should be in the future"
         );
         unlockTime = _unlockTime;
-        owner = payable(msg.sender);
+        owner = msg.sender;
     }
 
     function getOwner() public view override returns(address){

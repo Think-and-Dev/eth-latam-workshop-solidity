@@ -1,3 +1,4 @@
+/* eslint-disable node/no-unpublished-import */
 import {HardhatUserConfig} from 'hardhat/config';
 import '@nomicfoundation/hardhat-toolbox';
 
@@ -64,12 +65,14 @@ const config: HardhatUserConfig = {
     enabled: process.env.REPORT_GAS !== undefined,
     gasPrice: 47,
     currency: 'USD',
+    excludeContracts: ['LockV8'],
     // onlyCalledMethods: false,
   },
   contractSizer: {
     alphaSort: true,
     runOnCompile: false,
     strict: true,
+    except: ['console'],
   },
   abiExporter: {
     path: './abis',
