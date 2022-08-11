@@ -6,12 +6,12 @@ contract StoppablePattern {
   bool public contractStopped = false;
 
     modifier haltInEmergency { 
-        require(contractStopped);
+        require(!contractStopped);
         _;   
     }
 
     modifier enableInEmergency { 
-        require(!contractStopped); 
+        require(contractStopped); 
         _; 
     }
     

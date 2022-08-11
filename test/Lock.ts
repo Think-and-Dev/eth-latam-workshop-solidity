@@ -100,17 +100,17 @@ describe('Lock', function () {
     });
   });
   describe('SafeMath', function () {
-    it.only('Should revert when making an unsafe sub (10-11) - Using unchecked', async function () {
+    it('Should not revert when making an unsafe sub (10-11) - Using unchecked', async function () {
       const {lock} = await loadFixture(deployOneYearLockFixture);
 
-      await expect(lock.unsafeSub(10, 11)).to.be.reverted;
+      await expect(lock.unsafeSub(10, 11)).to.not.be.reverted;
     });
-    it.only('Should revert when making an unsafe sub (10-11) - Not using unchecked', async function () {
+    it('Should revert when making an unsafe sub (10-11) - Not using unchecked', async function () {
       const {lock} = await loadFixture(deployOneYearLockFixture);
 
       await expect(lock.safeSub(10, 11)).to.be.reverted;
     });
-    it.only('Should revert when making an unsafe sub (10-11) - Using OZ SafeMath', async function () {
+    it('Should revert when making an unsafe sub (10-11) - Using OZ SafeMath', async function () {
       const {lock} = await loadFixture(deployOneYearLockFixture);
 
       await expect(lock.safeSubWithSafeMath(10, 11)).to.be.reverted;
