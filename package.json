@@ -14,12 +14,7 @@
     "deploy": "npx hardhat deploy",
     "deploy:evolution": "npx hardhat run scripts/deployEvolution.ts",
     "size-contracts": "npx hardhat size-contracts --no-compile",
-    "test": "npx hardhat test",
-    "local-node": "npx hardhat node",
-    "hardhat-run": "npx hardhat run --network hardhat",
-    "run-example-1": "VICTIM_CONTRACT_NAME=reentrancyVictim yarn hardhat-run ./scripts/reentrancy/deploy_and_run.ts",
-    "run-example-2": "VICTIM_CONTRACT_NAME=reentrancyProtected yarn hardhat-run ./scripts/reentrancy/deploy_and_run.ts",
-    "run-example-3": "VICTIM_CONTRACT_NAME=reentrancyWithOZ yarn hardhat-run ./scripts/reentrancy/deploy_and_run.ts"
+    "test": "npx hardhat test"
   },
   "engines": {
     "node": ">=16"
