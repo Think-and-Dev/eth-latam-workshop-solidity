@@ -21,9 +21,9 @@ contract LockV7 {
         );
 
         unlockTime = _unlockTime;
-        owner = payable(msg.sender);
+        owner = msg.sender;
     }
-
+    
     function withdraw() public {
         require(block.timestamp >= unlockTime, "You can't withdraw yet");
         require(msg.sender == owner, "You aren't the owner");

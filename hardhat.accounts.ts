@@ -5,6 +5,9 @@ const namedAccounts = {
   dev: {
     default: 1,
   },
+  token: {
+    default: 2,
+  },
 };
 
 export default namedAccounts;
