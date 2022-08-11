@@ -1,0 +1,10 @@
+[
+  "constructor(uint256) payable",
+  "event Withdrawal(uint256,uint256)",
+  "function owner() view returns (address)",
+  "function safeSub(uint256,uint256) pure returns (uint256)",
+  "function safeSubWithSafeMath(uint256,uint256) pure returns (uint256)",
+  "function unlockTime() view returns (uint256)",
+  "function unsafeSub(uint256,uint256) pure returns (uint256)",
+  "function withdraw()"
+]

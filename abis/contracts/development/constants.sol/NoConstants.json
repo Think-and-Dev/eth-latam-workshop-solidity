@@ -1,0 +1,4 @@
+[
+  "constructor(address)",
+  "function TOKEN() view returns (address)"
+]

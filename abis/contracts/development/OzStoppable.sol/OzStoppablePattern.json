@@ -1,0 +1,8 @@
+[
+  "event Paused(address)",
+  "event Unpaused(address)",
+  "function deposit() payable",
+  "function onlyPaused() view returns (bool)",
+  "function paused() view returns (bool)",
+  "function withdraw() view"
+]

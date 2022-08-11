@@ -1,0 +1,10 @@
+[
+  "constructor(address[],uint96[])",
+  "event Add(address,uint96,address)",
+  "event Initialized()",
+  "event Remove(address,address)",
+  "function add(address,uint96)",
+  "function listLength() view returns (uint256)",
+  "function remove(address)",
+  "function userDataList(uint256) view returns (address, uint96)"
+]
