@@ -1,5 +1,6 @@
 import {HardhatRuntimeEnvironment} from 'hardhat/types';
 import {DeployFunction} from 'hardhat-deploy/types';
+import {printDeploySuccessful, printInfo} from '../utils/utils';
 
 const version = 'v0.0.0';
 const ContractName = 'Immutable';
@@ -10,7 +11,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   const {deployer, token} = await getNamedAccounts();
 
-  console.log('\n Deploying Immutable contract...');
+  printInfo(`\n Deploying ${ContractName} contract...`);
 
   const ImmutableResult = await deploy(ContractName, {
     args: [token],
@@ -22,9 +23,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   const immutableAddress = ImmutableResult.address;
 
-  console.log('\n  Contract Deployment Complete!\n');
-  console.log('-ContractName                       ', immutableAddress);
-
+  printDeploySuccessful(ContractName, immutableAddress);
   return true;
 };
 

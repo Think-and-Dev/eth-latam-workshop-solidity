@@ -1,5 +1,6 @@
 import {HardhatRuntimeEnvironment} from 'hardhat/types';
 import {DeployFunction} from 'hardhat-deploy/types';
+import {printDeploySuccessful, printInfo} from '../utils/utils';
 
 const version = 'v0.0.0';
 const ContractName = 'StoppablePattern';
@@ -10,7 +11,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   const {deployer} = await getNamedAccounts();
 
-  console.log('\n Deploying StoppablePattern contract...');
+  printInfo(`\n Deploying ${ContractName} contract...`);
 
   const StoppableResult = await deploy(ContractName, {
     args: [deployer],
@@ -22,8 +23,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   const stoppableAddress = StoppableResult.address;
 
-  console.log('\n  Contract Deployment Complete!\n');
-  console.log('-ContractName                       ', stoppableAddress);
+  printDeploySuccessful(ContractName, stoppableAddress);
 
   return true;
 };

@@ -1,7 +1,7 @@
 import {HardhatRuntimeEnvironment} from 'hardhat/types';
 import {DeployFunction} from 'hardhat-deploy/types';
 import {ethers} from 'hardhat';
-import {getUnlockTime} from '../utils/utils';
+import {getUnlockTime, printDeploySuccessful, printInfo} from '../utils/utils';
 
 const version = 'v0.0.0';
 const ContractName = 'LockV5';
@@ -12,7 +12,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   const {deployer} = await getNamedAccounts();
 
-  console.log('\n Deploying LockV5 contract...');
+  printInfo(`\n Deploying ${ContractName} contract...`);
   const unlockTime = getUnlockTime();
 
   const LockV5Result = await deploy(ContractName, {
@@ -26,8 +26,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   const lockV5Address = LockV5Result.address;
 
-  console.log('\n  Contract Deployment Complete!\n');
-  console.log('-ContractName                       ', lockV5Address);
+  printDeploySuccessful(ContractName, lockV5Address);
 
   return true;
 };

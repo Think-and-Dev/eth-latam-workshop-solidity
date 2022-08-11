@@ -1,0 +1,9 @@
+[
+  "event Deposit(address indexed,uint256)",
+  "event Withdraw(address indexed,uint256)",
+  "function balances(address) view returns (uint256)",
+  "function contractBalance() view returns (uint256)",
+  "function getBalance(address) view returns (uint256)",
+  "function payIn() payable",
+  "function withdraw() payable"
+]
