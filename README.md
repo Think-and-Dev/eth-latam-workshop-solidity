@@ -16,7 +16,10 @@ yarn compile
 yarn test
 ```
 
-- Deploy:
+- The gas reporter plugin will be executed at the end of the tests. The file where the coverage info will be located is at ./coverage/index.html
+
+* Deploy:
+
   - Using the hardhat-deploy plugin:
     ```bash
     yarn deploy
@@ -25,6 +28,11 @@ yarn test
     ```bash
     yarn deploy:evolution
     ```
+
+* Run contract-sizer:
+  ```bash
+  yarn size-contracts
+  ```
 
 ---
 
@@ -37,10 +45,19 @@ yarn test
 #### Reentrancy
 
 - Series of contracts to perform a reentrancy attack
+
   - ReentrancyVictim: contract who will suffer the reentrancy attack.
   - ReentrancyProtected: contract protected from the attack using a custom solution
   - ReentrancyWithOZ: contract protected from reentrancy using the ReentrancyGuard contract from Open Zeppelin.
   - ReentrancyAttacker: contract who will hack and drain funds from ReentrancyVictim
+
+- Examples:
+
+```bash
+    yarn reentrancy-example-1
+    yarn reentrancy-example-2
+    yarn reentrancy-example-3
+```
 
 #### Emergency stop pattern
 
@@ -66,3 +83,9 @@ yarn test
 
 - [Alejo Lovallo](https://github.com/AlejoLovallo)
 - [Lucas Marc](https://github.com/lucas-marc)
+- [T&D-Twitter](https://twitter.com/thinkanddev)
+- [T&D-Facebook](https://www.facebook.com/ThinkandDev)
+- [T&D-Instagram](https://www.instagram.com/thinkanddevok/)
+- [T&D-LinkedIn](https://www.linkedin.com/company/think-and-dev-llc/)
+- [T&D-Web](https://thinkanddev.com)
+- Mails: HIRING@THINKANDDEV.COM | HELLO@THINKANDDEV.COM
